@@ -1,12 +1,20 @@
-import Button from "../UI/Button"
-import HeadphoneIcon from "../UI/Icons/HeadphoneIcon"
-import Label from "../UI/Label"
-import Navigation from "../UI/Navigation"
+import { NavLink } from "react-router-dom"
+import Button from "../StyledComponents/Button"
+import HeadphoneIcon from "../StyledComponents/Icons/HeadphoneIcon"
+import Label from "../StyledComponents/Label"
+import Navigation from "../StyledComponents/Navigation"
 import './MainNavigation.scss'
 
 const MainNavigation: React.FC = () => {
     return (
         <Navigation className="nav-wrapper">
+            <NavLink
+                to="/auth"
+                className={({ isActive }) => isActive ? 'activeLink' : ''}
+            >
+                Authentication
+            </NavLink>
+            
             <Label $secondary>
                 Need help?
             </Label>

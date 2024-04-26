@@ -3,14 +3,6 @@
         min-width: 28rem;
         display: flex;
         flex-direction: column;
-        gap: 1.7rem;
-        &__input-wrapper {
-            position: relative;
-            &__icon {
-                position: absolute;
-                top: .8rem;
-                left: .8rem
-            }
-        }
+        gap: 1rem;
     }
 }

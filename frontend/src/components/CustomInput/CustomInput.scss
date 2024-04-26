@@ -1,0 +1,11 @@
+.input-field-wrapper {
+    position: relative;
+    &__icon {
+        position: absolute;
+        top: 48%;
+        left: .8rem
+    }
+    &__label {
+        display: block;
+    }
+}

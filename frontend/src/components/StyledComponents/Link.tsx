@@ -1,6 +1,12 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+const activeLink = css`
+    color: var(--primary);
+`
 
 export default styled.a<{ $primary?: boolean }>`
+    ${activeLink}
+
     cursor: pointer;
     font-size: .8rem;
     text-decoration: underline;
@@ -9,6 +15,6 @@ export default styled.a<{ $primary?: boolean }>`
     color: ${props => props.$primary ? props.theme.primary : props.color};
 
     &:hover {
-        color: ${props => props.theme.primaryDarker};
+        color: var(--primaryDarker);
     }
 `

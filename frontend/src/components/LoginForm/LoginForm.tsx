@@ -1,15 +1,17 @@
 import { Form } from 'react-router-dom';
+import { useState } from 'react';
 
-import './LoginForm.scss'
-import EmailIcon from '../UI/Icons/EmailIcon';
-import PasswordIcon from '../UI/Icons/PasswordIcon';
-import AvatarIcon from '../UI/Icons/AvatarIcon';
-import Button from '../UI/Button';
-import Input from '../UI/Input';
-import HeaderText from '../UI/HeaderText';
-import Label from '../UI/Label';
+import Input from '../CustomInput/CustomInput';
+import Button from '../StyledComponents/Button';
+import HeaderText from '../StyledComponents/HeaderText';
+import AvatarIcon from '../StyledComponents/Icons/AvatarIcon';
+import './LoginForm.scss';
 
 const LoginForm: React.FC = () => {
+    const [isSubmitting, _setIsSubmitting] = useState<boolean>(false)
+    const [hasEmailError, _setEmailError] = useState<boolean>(false)
+    const [hasPasswordError, _setPasswordError] = useState<boolean>(false)
+
     return (
         <>
             <AvatarIcon />
@@ -20,37 +22,29 @@ const LoginForm: React.FC = () => {
                 <HeaderText $secondary>Enter your details to login.</HeaderText>
                 
                 <Form method="post" className="auth-wrapper__form">
-                    <div>
-                        <Label htmlFor="email">Email*</Label>
+                    <Input
+                        id='email'
+                        type='email'
+                        label='Email*'
+                        errorMsg={hasEmailError && 'error variable todo' || ''}
+                        placeholder='test@test.com'
+                        prefixIcon='email'
+                        required
+                    />
 
-                        <div className='auth-wrapper__form__input-wrapper'>
-                            <Input
-                                id='email'
-                                type='email'
-                                placeholder='test@test.com'
-                                required
-                            />
+                    <Input
+                        id='password'
+                        type='password'
+                        label='Password*'
+                        errorMsg={hasPasswordError && 'error variable todo' || ''}
+                        placeholder='Enter your password'
+                        prefixIcon='password'
+                        required
+                    />
 
-                            <EmailIcon className='auth-wrapper__form__input-wrapper__icon' />
-                        </div>
-                    </div>
-                
-                    <div>
-                        <Label htmlFor="password">Password*</Label>
-                        
-                        <div className='auth-wrapper__form__input-wrapper'>
-                            <Input
-                                id='password'
-                                type='password'
-                                placeholder='Enter your password'
-                                required
-                            />
-
-                            <PasswordIcon className='auth-wrapper__form__input-wrapper__icon' />
-                        </div>
-                    </div>
-
-                    <Button $primary>Login</Button>
+                    <Button $primary>
+                        {isSubmitting ? 'Submitting' : 'Login'}
+                    </Button>
                 </Form>
             </div>
         </>

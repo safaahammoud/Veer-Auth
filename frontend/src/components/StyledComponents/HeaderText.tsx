@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export default styled.h1<{ $secondary?: boolean}>`
     text-align: center;
-    margin: 0;
+    margin: 0 0 .5rem 0;
     font-family: ${props => props.theme.font};
     font-weight: ${props => props.$secondary ? '400' : '500'};
     font-size: ${props => props.$secondary ? '1rem' : '1.5rem'};
