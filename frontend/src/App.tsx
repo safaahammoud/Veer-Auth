@@ -1,9 +1,11 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 
 import './App.scss';
 import RootLayout from './Layouts/Root';
-import AuthenticationPage from './pages/Authentication';
+import AuthenticationPage from './pages/Authentication/Authentication';
 import HomePage from './pages/HomePage';
+import { theme } from './theme';
 
 const router = createBrowserRouter([
   {
@@ -24,7 +26,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <RouterProvider router={router}></RouterProvider>
+    <ThemeProvider theme={theme}>
+      <RouterProvider router={router}></RouterProvider>
+    </ThemeProvider>
   )
 }
 
