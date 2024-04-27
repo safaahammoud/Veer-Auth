@@ -1,6 +1,6 @@
-import Label from "../StyledComponents/Label"
+import Label from "../StyledComponents/Label";
 import Link from "../StyledComponents/Link";
-import "./AuthSwitcher.scss"
+import "./AuthSwitcher.scss";
 
 const AuthSwitcher: React.FC = () => {
     return (

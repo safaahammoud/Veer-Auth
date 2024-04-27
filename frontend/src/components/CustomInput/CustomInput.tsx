@@ -1,20 +1,14 @@
+import { InputProps } from "@/types";
+
 import EmailIcon from "../StyledComponents/Icons/EmailIcon";
 import PasswordIcon from "../StyledComponents/Icons/PasswordIcon";
 import Input from "../StyledComponents/Input";
 import Label from "../StyledComponents/Label";
 import './CustomInput.scss';
 
-type InputProps = {
-    id: string;
-    type: string;
-    label: string;
-    errorMsg: string;
-    required: boolean;
-    prefixIcon: string;
-    placeholder?: string;
-}
-
-const CustomInput: React.FC<InputProps> = ({ label, id, errorMsg, prefixIcon, ...props }) => {
+const CustomInput: React.FC<InputProps> = (
+    { label, id, errorMsg, prefixIcon, ...props }
+) => {
     const getIcon = (prefixIconName: string) => {
         if(prefixIconName === 'email') {
             return <EmailIcon className='input-field-wrapper__icon'/>
@@ -25,13 +19,27 @@ const CustomInput: React.FC<InputProps> = ({ label, id, errorMsg, prefixIcon, ..
     
     return (
         <div className="input-field-wrapper">
-            <Label htmlFor={id} className="input-field-wrapper__label">{ label }</Label>
-            
-            <Input id={id} {...props} />
+            <Label
+                htmlFor={id}
+                className="input-field-wrapper__label"
+            >
+                {label}
+            </Label>
 
-            {prefixIcon && getIcon(prefixIcon)}
+            <div className="input-field-wrapper__field">
+                <Input
+                    id={id}
+                    {...props}
+                />
+
+                {prefixIcon && getIcon(prefixIcon)}
+            </div>
             
-            <div>{errorMsg && <p>{errorMsg}</p>}</div>
+            <div className="input-field-wrapper__error">
+                {errorMsg
+                    && <Label $color="red">{errorMsg}</Label>
+                }
+            </div>
         </div>
     );
 }

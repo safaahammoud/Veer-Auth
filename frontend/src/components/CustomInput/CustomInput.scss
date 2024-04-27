@@ -1,11 +1,16 @@
 .input-field-wrapper {
-    position: relative;
     &__icon {
         position: absolute;
-        top: 48%;
-        left: .8rem
+        top: .8rem;
+        left: .8rem;
     }
     &__label {
         display: block;
+    }
+    &__field {
+        position: relative;
+    }
+    &__error {
+        min-height: 1.5rem;
     }
 }

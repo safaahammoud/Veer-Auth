@@ -1,5 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+import { Toaster } from 'react-hot-toast';
 
 import './App.scss';
 import RootLayout from './Layouts/Root';
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
         element: <HomePage />
       },
       {
-        path: 'auth',
+        path: 'login',
         element: <AuthenticationPage />
       }
     ]
@@ -28,6 +29,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <RouterProvider router={router}></RouterProvider>
+      
+      <Toaster />
     </ThemeProvider>
   )
 }
