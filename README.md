@@ -1,30 +1,39 @@
-# React + TypeScript + Vite
+# Project Framework
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Auth login demo built using [React 18](https://github.com/facebook/react), [React Toast](https://react-hot-toast.com/),[API](simulate local backend server) and [TypeScript](https://github.com/microsoft/TypeScript).
+<br>
 
-Currently, two official plugins are available:
+# Project Structure
+The project main directories are: pages and components,and hooks and Styled component for the frontend directory while the backend was build using Nodejs server and express app to build the login api.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Components: contains reusable sections to be added to the pages.
+StyledComponents: contains reusable html components but customized based on the project elements.
+Hooks: Input hooks for managing how the form inputs validation works
 
-## Expanding the ESLint configuration
+## Practical Extra Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Error Handling on a Global Scale: Send a toast message to the user using react-hot-toast library which is light weight and convenient for the project requirement
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## Project Setup on frontend
+
+```sh
+npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Compile and Hot-Reload for Development on frontend
+
+```sh
+npm run dev
+```
+## Project Setup on backend
+
+```sh
+npm install
+```
+
+### Compile and Hot-Reload for Development on backend
+
+```sh
+npm run start
+```
